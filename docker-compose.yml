@@ -1,0 +1,51 @@
+version: "3.2"
+services:
+  nats:
+    image: nats:latest
+    restart: always
+    command: --js
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+    hostname: nats
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./data-db:/var/lib/postgresql/data
+  postgres-test:
+    image: postgres:latest
+    container_name: feature-flag-postgres-test
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5430:5432"
+    volumes:
+      - ./init-test.sql:/docker-entrypoint-initdb.d/init-test.sql
+  compass-client:
+    image: ljdavies/pioneer:compass-client
+    depends_on: 
+      - nats
+      - postgres
+      - compass-server
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    links:
+      - "compass-server:cs"
+  compass-server:
+    image: ljdavies/pioneer:compass-server
+    ports: 
+      - "3001:3001"
+    depends_on: 
+      - nats
+      - postgres
+volumes: 
+  db-data:
