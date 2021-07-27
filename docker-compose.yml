@@ -31,6 +31,7 @@ services:
       - ./init-test.sql:/docker-entrypoint-initdb.d/init-test.sql
   compass-client:
     image: ljdavies/pioneer:compass-client
+    restart: always
     depends_on: 
       - nats
       - postgres
@@ -42,10 +43,21 @@ services:
       - "compass-server:cs"
   compass-server:
     image: ljdavies/pioneer:compass-server
+    restart: always
+    env_file: ./.env
     ports: 
       - "3001:3001"
     depends_on: 
       - nats
       - postgres
+  scout:
+    image: ljdavies/pioneer:scout
+    env_file: ./.env
+    restart: always
+    ports:
+      - "3030:3030"
+    depends_on: 
+      - compass-client
+      - compass-server
 volumes: 
   db-data:
