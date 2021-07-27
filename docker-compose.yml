@@ -13,7 +13,7 @@ services:
     container_name: postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: secret
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
     volumes:
@@ -24,7 +24,7 @@ services:
     container_name: feature-flag-postgres-test
     restart: always
     environment:
-      POSTGRES_PASSWORD: secret
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "5430:5432"
     volumes:
