@@ -6,7 +6,7 @@
 
 Pioneer is an open-source feature management service consisting of several components.  The `docker-comopse.yml` provided in this repository can be run with the command `docker-compose up` in order to spin up all docker containers necessary.
 
-For more information about Pioneer, check out our case study.
+For more information about Pioneer, check out our [case study](https://pioneer-io.github.io/).
 
 ## Usage
 
