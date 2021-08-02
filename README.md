@@ -10,6 +10,8 @@ Pioneer is a self-hosted application that can be installed on your own server an
 
 Click [here](https://pioneer-io.github.io/documentation/) for full documentation.
 
+Pioneer's case study can be found [here](https://pioneer-io.github.io/).
+
 ## Quick Start
 ### Clone GitHub repository
 ```
