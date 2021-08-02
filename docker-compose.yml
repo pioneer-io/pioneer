@@ -19,16 +19,6 @@ services:
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./data-db:/var/lib/postgresql/data
-  postgres-test:
-    image: postgres:latest
-    container_name: feature-flag-postgres-test
-    restart: always
-    environment:
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-    ports:
-      - "5430:5432"
-    volumes:
-      - ./init-test.sql:/docker-entrypoint-initdb.d/init-test.sql
   compass-client:
     image: ljdavies/pioneer:compass-client
     restart: always
