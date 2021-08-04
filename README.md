@@ -29,3 +29,8 @@ docker-compose up
 
 ### Access the User Interface
 Visit `http://localhost:3000` and start creating your own feature flags!
+
+### Example
+Starting up the Pioneer application is easy! Watch here to see just how easy it is.
+![pioneer_startup](https://user-images.githubusercontent.com/42515081/128197412-83313f8b-fab9-4573-9d0b-05074090c4ee.gif)
+
