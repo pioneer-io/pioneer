@@ -20,7 +20,7 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./data-db:/var/lib/postgresql/data
   compass-client:
-    image: ljdavies/pioneer:compass-client
+    image: pioneerio/compass-client:latest
     restart: always
     depends_on: 
       - nats
@@ -32,7 +32,7 @@ services:
     links:
       - "compass-server:cs"
   compass-server:
-    image: ljdavies/pioneer:compass-server
+    image: pioneerio/compass-server:latest
     restart: always
     env_file: ./.env
     ports: 
@@ -41,7 +41,7 @@ services:
       - nats
       - postgres
   scout:
-    image: ljdavies/pioneer:scout
+    image: pioneerio/scout:latest
     env_file: ./.env
     restart: always
     ports:
