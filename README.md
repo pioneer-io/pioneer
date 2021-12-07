@@ -4,6 +4,8 @@
 
 # Pioneer
 
+# ⚠️ This project is no longer actively maintained ⚠️
+
 Welcome to Pioneer, a light-weight feature flag management tool.
 
 Pioneer is a self-hosted application that can be installed on your own server and run with just a single command.
